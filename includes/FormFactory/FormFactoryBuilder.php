@@ -272,7 +272,7 @@ class FormFactoryBuilder {
 				'label-message' => 'managewiki-label-deployment-group',
 				'options' => $mwCore->getDeploymentGroupOptions(),
 				'default' => $mwCore->getDeploymentGroup(),
-				'disabled' => !$ceMW,
+				'disabled' => !$ceMW || !$context->getAuthority()->isAllowed( 'managewiki-restricted' ),
 				'cssclass' => 'ext-managewiki-infuse',
 				'section' => 'main',
 			];
@@ -1258,6 +1258,7 @@ class FormFactoryBuilder {
 		}
 
 		if (
+			$context->getAuthority()->isAllowed( 'managewiki-restricted' ) &&
 			$mwCore->getDeploymentGroupOptions() &&
 			$formData['deployment-group'] !== $mwCore->getDeploymentGroup()
 		) {
