@@ -56,6 +56,12 @@ interface ICoreModule extends IModule {
 
 	public function setCategory( string $category ): void;
 
+	public function getDeploymentGroup(): string;
+
+	public function setDeploymentGroup( string $deploymentGroup ): void;
+
+	public function getDeploymentGroupOptions(): array;
+
 	public function getServerName(): string;
 
 	public function setServerName( string $server ): void;

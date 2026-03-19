@@ -266,6 +266,18 @@ class FormFactoryBuilder {
 			];
 		}
 
+		if ( $mwCore->getDeploymentGroupOptions() ) {
+			$formDescriptor['deployment-group'] = [
+				'type' => 'select',
+				'label-message' => 'managewiki-label-deployment-group',
+				'options' => $mwCore->getDeploymentGroupOptions(),
+				'default' => $mwCore->getDeploymentGroup(),
+				'disabled' => !$ceMW,
+				'cssclass' => 'ext-managewiki-infuse',
+				'section' => 'main',
+			];
+		}
+
 		if ( $mwCore->isEnabled( 'hooks' ) ) {
 			$this->hookRunner->onManageWikiCoreAddFormFields(
 				$context, $moduleFactory, $dbname, $ceMW, $formDescriptor
@@ -1243,6 +1255,13 @@ class FormFactoryBuilder {
 
 		if ( $mwCore->getCategoryOptions() && $formData['category'] !== $mwCore->getCategory() ) {
 			$mwCore->setCategory( $formData['category'] );
+		}
+
+		if (
+			$mwCore->getDeploymentGroupOptions() &&
+			$formData['deployment-group'] !== $mwCore->getDeploymentGroup()
+		) {
+			$mwCore->setDeploymentGroup( $formData['deployment-group'] );
 		}
 
 		if ( $mwCore->isEnabled( 'server' ) && $formData['server'] !== $mwCore->getServerName() ) {

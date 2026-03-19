@@ -188,6 +188,26 @@ class CoreModule implements ICoreModule {
 	}
 
 	/** @inheritDoc */
+	public function getDeploymentGroup(): string {
+		// Not implemented
+		return '';
+	}
+
+	/**
+	 * @inheritDoc
+	 * @param string $deploymentGroup @phan-unused-param
+	 */
+	public function setDeploymentGroup( string $deploymentGroup ): void {
+		// Not implemented
+	}
+
+	/** @inheritDoc */
+	public function getDeploymentGroupOptions(): array {
+		// Not implemented
+		return [];
+	}
+
+	/** @inheritDoc */
 	public function getServerName(): string {
 		$mwSettings = $this->settingsFactory->getInstance( $this->dbname );
 		return $mwSettings->list( 'wgServer' ) ?? '';

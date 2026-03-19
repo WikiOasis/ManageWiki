@@ -99,6 +99,7 @@
 	"managewiki-label-dbcluster": "Database cluster",
 	"managewiki-label-dbname": "Database name",
 	"managewiki-label-deletewiki": "Delete this wiki?",
+	"managewiki-label-deployment-group": "Deployment group",
 	"managewiki-label-deletiondate": "Deletion date",
 	"managewiki-label-experimental": "Experimental features",
 	"managewiki-label-goto": "Go to Special:ManageWiki",
